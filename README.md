@@ -63,27 +63,6 @@
       margin-top: 30px;
     }
   </style>
-
-  <!-- Facebook Pixel Base Code -->
-  <script>
-    !function(f,b,e,v,n,t,s){
-      if(f.fbq)return;n=f.fbq=function(){
-        n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments)
-      };
-      if(!f._fbq)f._fbq=n;
-      n.push=n;
-      n.loaded=!0;
-      n.version='2.0';
-      n.queue=[];
-      t=b.createElement(e);t.async=!0;
-      t.src=v;
-      s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)
-    }(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '693015023514001');
-    fbq('track', 'PageView');
-  </script>
 </head>
 <body>
   <div class="container">
@@ -91,15 +70,14 @@
     <p>Deposite R$20 e receba um bônus de R$10<br><strong>Válido para os 100 primeiros!</strong></p>
 
     <!-- FORM -->
-    <form onsubmit="handleForm(event)">
+    <form onsubmit="showMessage(event)">
       <input type="text" name="nome" placeholder="Seu nome" required />
       <input type="email" name="email" placeholder="Seu email" required />
       <button type="submit">Cadastrar & Receber Oferta</button>
     </form>
 
     <!-- Messenger Button -->
-    <a class="messenger" href="https://m.me/61576668571142" 
-       onclick="fbq('trackCustom', 'MessengerClick', {eventID: 'msg123'});" target="_blank">
+    <a class="messenger" href="https://m.me/61576668571142" target="_blank">
       Fale com a gente no Messenger
     </a>
 
@@ -108,24 +86,11 @@
     </div>
   </div>
 
-  <!-- Script to simulate form event tracking -->
   <script>
-    function handleForm(event) {
-      event.preventDefault();
-      fbq('track', 'Lead', {
-        content_name: 'LandingForm',
-        eventID: 'lead123'
-      });
-
-      alert("Cadastro enviado com sucesso! Entraremos em contato.");
-      event.target.reset();
+    function showMessage(e) {
+      e.preventDefault();
+      alert("Cadastro enviado! Clique no botão Messenger para falar com kami.");
     }
   </script>
-
-  <!-- Optional: noscript fallback -->
-  <noscript>
-    <img height="1" width="1" style="display:none"
-         src="https://www.facebook.com/tr?id=693015023514001&ev=PageView&noscript=1" />
-  </noscript>
 </body>
 </html>
